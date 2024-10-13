@@ -33,7 +33,8 @@ services:
       nextcloud:30.0.0-apache@sha256:6613a36792a7e392fc532d5b75e3b018ea5fcea034002083e1c7a182d07eae99
     restart: on-failure
     volumes:
-      - /mnt/nas/data/nextcloud:/var/www/html
+      - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
+      - /mnt/nas/data/nextcloud:/mnt
     environment:
       - MYSQL_HOST=nextcloud_db_1
       - REDIS_HOST=nextcloud_redis_1
